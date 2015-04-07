@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="container" data-url="{{ url_for('projects') }}">
+	<div class="row">
+		<div class="col-md-12">
+			<h1 style="text-align:center;">Projects</h1>
+		</div>
+		{% for project in projects %}
+		<div class="col-md-3">
+			<button type="button" class="btn btn-primary btn-lg project">  {{ project[1] }} </button>
+		</div>
+		{% endfor %}		
+	</div>
+</div>
+{% endblock %}
