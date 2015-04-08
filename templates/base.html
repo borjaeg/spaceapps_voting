@@ -4,13 +4,33 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+	<link rel="stylesheet" href="static/stylesheets/main.css">
 	<link href='http://fonts.googleapis.com/css?family=Lato&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
 	<title> Space Apps Zaragoza</title>
 </head>
 <body>
-	<div> <h1>Space Apps Zaragoza</h1> </div>
-	<div id="content">
-	{% block content %}{% endblock %}
+	<div class="content">
+		<div class="row">
+			<div class="col-md-12">
+				<img class="logo" src="static/images/logo_spaceapps_vivo.png"/>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-12">
+				<h1>Votación Social</h1>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-12">
+				<h1>Space Apps Zaragoza</h1>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-12">
+				<h3>El futuro está en tus manos</h3>
+			</div>
+		</div>
+		{% block content %}{% endblock %}
 	</div>
 </body>
 <script src="//code.jquery.com/jquery-1.11.2.min.js"></script>

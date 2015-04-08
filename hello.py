@@ -14,6 +14,10 @@ app.config['MYSQL_DATABASE_HOST'] = 'localhost'
 mysql.init_app(app)
 
 
+@app.route("/")
+def hello():
+	return redirect("/login")
+
 @app.route("/login")
 def login():
 	return render_template("login.html")
@@ -29,19 +33,23 @@ def invalid():
 @app.route("/authenticate")
 def authenticate():
 	email = request.args.get('email', '')
-	cursor = mysql.connect().cursor()
-	query = "SELECT * FROM participants WHERE email = '%s'" % email
-	cursor.execute(query)
-	data = cursor.fetchone()
-	if data is None:
-		return "-1"
+	if email != "admin":
+		cursor = mysql.connect().cursor()
+		query = "SELECT * FROM participants WHERE email = '%s'" % email
+		cursor.execute(query)
+		data = cursor.fetchone()
+		if data is None:
+			return "-1"
+		else:
+			print data
+			if data[2] == 0:
+				session['email'] = email
+				return "0"
+			else: # the participant has voted
+				return "-2"
 	else:
-		print data
-		if data[2] == 0:
-			session['email'] = email
-			return "0"
-		else: # the participant has voted
-			return "-2"
+		session['email'] = "admin"
+		return "0"
 		
 
 @app.route("/projects")
