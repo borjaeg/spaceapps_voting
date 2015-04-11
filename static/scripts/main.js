@@ -25,5 +25,5 @@ $(document).ready(function() {
     }
   });
 
-  setTimeout(function(){$(".winner").fadeIn('slow');}, 2000);
+  setTimeout(function(){$(".winner").fadeIn('slow');}, 3000);
 });
