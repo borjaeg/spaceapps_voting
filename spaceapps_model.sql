@@ -6,7 +6,6 @@ CREATE TABLE projects(
   hashtag VARCHAR(50) UNIQUE,
   team VARCHAR(100) UNIQUE,
   num_votes INT UNSIGNED DEFAULT 0,
-  social_votes INT UNSIGNED DEFAULT 0,
   PRIMARY KEY(id_project)
 );
 

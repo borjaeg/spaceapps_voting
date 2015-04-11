@@ -24,4 +24,6 @@ $(document).ready(function() {
       })
     }
   });
+
+  setTimeout(function(){$(".winner").fadeIn('slow');}, 2000);
 });

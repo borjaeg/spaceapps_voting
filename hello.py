@@ -88,13 +88,13 @@ def compute_winner():
 	query_total_votes = "SELECT SUM(num_votes) AS total_votos FROM projects;"
 	cursor.execute(query_total_votes)
 	total_votes = cursor.fetchone()[0]
-	print type(total_votes)
-	query_num_projects = "SELECT COUNT(*) AS num_projects FROM projects;"
-	cursor.execute(query_num_projects)
-	num_projects = cursor.fetchone()[0]
-	query_votes_by_project = "SELECT hashtag, num_votes, social_votes FROM projects ORDER BY social_votes DESC;"
-	cursor.execute(query_votes_by_project)
-	votes_by_project = cursor.fetchall()
+	#print type(total_votes)
+	#query_num_projects = "SELECT COUNT(*) AS num_projects FROM projects;"
+	#cursor.execute(query_num_projects)
+	#num_projects = cursor.fetchone()[0]
+	#query_votes_by_project = "SELECT hashtag, num_votes, social_votes FROM projects ORDER BY social_votes DESC;"
+	#cursor.execute(query_votes_by_project)
+	#votes_by_project = cursor.fetchall()
 	rank = 1
 	projects = []
 	for votes in votes_by_project:
