@@ -35,14 +35,14 @@ def authenticate():
 	email = request.args.get('email', '')
 	if email != "admin":
 		cursor = mysql.connect().cursor()
-		query = "SELECT * FROM participants WHERE email = '%s'" % email
+		query = "SELECT email, hasVoted FROM participants WHERE email = '%s'" % email
 		cursor.execute(query)
 		data = cursor.fetchone()
 		if data is None:
 			return "-1"
 		else:
 			print data
-			if data[2] == 0:
+			if data[1] == 0:
 				session['email'] = email
 				return "0"
 			else: # the participant has voted
@@ -55,7 +55,7 @@ def authenticate():
 @app.route("/projects")
 def projects():
 	cursor = mysql.connect().cursor()
-	query = "SELECT id_project, hashtag, team FROM projects;"
+	query = "SELECT id_project, hashtag FROM projects;"
 	cursor.execute(query)
 	projects = cursor.fetchall()
 	return render_template("projects.html", projects = projects)
